@@ -9,8 +9,16 @@ import BaseLayout from "./layouts/BaseLayout";
 import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Post from "./pages/Post";
 import Register from "./pages/Register";
+import Bensin from "./pages/Bensin";
+import AddBensin from "./pages/AddBensin";
+import EditBensin from "./pages/EditBensin";
+import CuciMobil from "./pages/CuciMobil";
+import AddCuciMobil from "./pages/AddCuciMobil";
+import EditCuciMobil from "./pages/EditCuciMobil";
+import Pembeli from "./pages/Pembeli";
+import AddPembeli from "./pages/AddPembeli";
+import EditPembeli from "./pages/EditPembeli";
 import PrivateRoute from "./utils/PrivateRoute";
 import PublicRoute from "./utils/PublicRoute";
 import { AuthProvider } from "./utils/AuthProvider";
@@ -48,10 +56,74 @@ function App() {
             }
           />
           <Route
-            path="posts"
+            path="bensin"
             element={
               <PrivateRoute>
-                <Post />
+                <Bensin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="add-bensin"
+            element={
+              <PrivateRoute>
+                <AddBensin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="edit-bensin/:id"
+            element={
+              <PrivateRoute>
+                <EditBensin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="cuci-mobil"
+            element={
+              <PrivateRoute>
+                <CuciMobil />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="add-cuci-mobil"
+            element={
+              <PrivateRoute>
+                <AddCuciMobil />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="edit-cuci-mobil/:id"
+            element={
+              <PrivateRoute>
+                <EditCuciMobil />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="pembeli"
+            element={
+              <PrivateRoute>
+                <Pembeli />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="add-pembeli"
+            element={
+              <PrivateRoute>
+                <AddPembeli />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="edit-pembeli/:id"
+            element={
+              <PrivateRoute>
+                <EditPembeli />
               </PrivateRoute>
             }
           />
@@ -61,11 +133,11 @@ function App() {
   );
   return (
     <>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </AuthProvider>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </AuthProvider>
     </>
   );
 }
